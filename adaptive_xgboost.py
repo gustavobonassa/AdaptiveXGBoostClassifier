@@ -8,12 +8,20 @@ from skmultiflow.utils import get_dimensions
 import threading
 import concurrent.futures
 import multiprocessing
+from pathos.multiprocessing import ProcessPool as Pool
+import time
 
-def _thread(args):
+def _thread(x, y):
     # print(args["ensemble"])
-    # print(args.data)
-    margins = args["ensemble"].predict(args["data"], output_margin=True)
-    return margins
+    print(args)
+    # margins = args["ensemble"].predict(args["data"], output_margin=True)
+    # return margins
+    return x+y
+
+def _teste(ensemble, data):
+    pool = Pool(8)
+    results = pool.map(pow, [1,2,3,4], [5,6,7,8])
+    print(results)
 
 class AdaptiveXGBoostClassifier(BaseSKMObject, ClassifierMixin):
     _PUSH_STRATEGY = 'push'
@@ -255,19 +263,19 @@ class AdaptiveXGBoostClassifier(BaseSKMObject, ClassifierMixin):
                 # jobs = []
                 # for i in range(trees_in_ensemble - 1):
                 #     args = {'ensemble': self._ensemble[i], 'data': d_test}
-                #     p = multiprocessing.Process(target=_thread, args=(args,))
+                #     p = multiprocessing.Pool(target=_thread, args=(args,))
                 #     jobs.append(p)
                 #     p.start()
                 # for proc in jobs:
                 #     proc.join()
                 ######################################
 
-                with concurrent.futures.ProcessPoolExecutor() as executor:
-                    futures = []
-                    for i in range(trees_in_ensemble - 1):
-                        args = {'ensemble': self._ensemble[i], 'data': d_test}
-                        future = executor.submit(_thread, args)
-                        print(future)
+                # with concurrent.futures.ProcessPoolExecutor() as executor:
+                #     futures = []
+                #     for i in range(trees_in_ensemble - 1):
+                #         args = {'ensemble': self._ensemble[i], 'data': d_test}
+                #         future = executor.submit(_thread, args)
+                #         print(future)
                     
                     # executor.shutdown(wait=True)
                     # for result in concurrent.futures.as_completed(futures):
@@ -289,9 +297,17 @@ class AdaptiveXGBoostClassifier(BaseSKMObject, ClassifierMixin):
                     #     d_test.set_base_margin(margin=margin)
 
                 ######################################
-                # for i in range(trees_in_ensemble - 1):
-                #     margins = self._ensemble[i].predict(d_test, output_margin=True)
-                #     d_test.set_base_margin(margin=margins)
+                for i in range(trees_in_ensemble - 1):
+                    margins = self._ensemble[i].predict(d_test, output_margin=True)
+                    d_test.set_base_margin(margin=margins)
+
+                # def _teste(ensemble, data):
+                #     # pool = Pool(8)
+                #     # results = pool.map(pow, [1,2,3,4], [5,6,7,8])
+                #     print("aaaa")
+                #     return "aaa"
+
+                # self._teste(self._ensemble, d_test)
 
                 predicted = self._ensemble[trees_in_ensemble - 1].predict(d_test)
                 # print("---- DEBBUGER ----")
@@ -301,6 +317,19 @@ class AdaptiveXGBoostClassifier(BaseSKMObject, ClassifierMixin):
                 return np.array(predicted > 0.5).astype(int)
         # Ensemble is empty, return default values (0)
         return np.zeros(get_dimensions(X)[0])
+
+    def _thread(self, x, y):
+        # print(args["ensemble"])
+        print(args)
+        # margins = args["ensemble"].predict(args["data"], output_margin=True)
+        # return margins
+        return x+y
+
+    def _teste(self, ensemble, data):
+        pool = Pool(8)
+        results = pool.map(self._thread, [1,2,3,4], [5,6,7,8])
+        print("aaaa")
+        return "aaa"
 
     def predict_proba(self, X):
         """

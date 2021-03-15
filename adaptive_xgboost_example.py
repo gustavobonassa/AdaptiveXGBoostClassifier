@@ -1,4 +1,5 @@
 from adaptive_xgboost import AdaptiveXGBoostClassifier
+from adaptive_incremental import Adaptive2
 
 from skmultiflow.data import ConceptDriftStream
 from skmultiflow.evaluation import EvaluatePrequential
@@ -18,13 +19,18 @@ AXGBp = AdaptiveXGBoostClassifier(update_strategy='push',
                                   max_window_size=max_window_size,
                                   min_window_size=min_window_size,
                                   detect_drift=detect_drift)
-AXGBr = AdaptiveXGBoostClassifier(update_strategy='replace',
-                                  n_estimators=n_estimators,
-                                  learning_rate=learning_rate,
+# AXGBr = AdaptiveXGBoostClassifier(update_strategy='replace',
+#                                   n_estimators=n_estimators,
+#                                   learning_rate=learning_rate,
+#                                   max_depth=max_depth,
+#                                   max_window_size=max_window_size,
+#                                   min_window_size=min_window_size,
+#                                   detect_drift=detect_drift)
+
+AXGBg = Adaptive2(learning_rate=learning_rate,
                                   max_depth=max_depth,
                                   max_window_size=max_window_size,
-                                  min_window_size=min_window_size,
-                                  detect_drift=detect_drift)
+                                  min_window_size=min_window_size)
 
 stream = ConceptDriftStream(random_state=1000,
                             position=5000)
@@ -35,5 +41,5 @@ evaluator = EvaluatePrequential(pretrain_size=0,
                                 show_plot=True)
 
 evaluator.evaluate(stream=stream,
-                   model=[AXGBp, AXGBr],
-                   model_names=['AXGBp', 'AXGBr'])
+                   model=[AXGBp, AXGBg],
+                   model_names=['AXGB ensemble', 'AXGB incremental'])
