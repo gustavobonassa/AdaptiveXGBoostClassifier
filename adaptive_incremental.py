@@ -176,6 +176,7 @@ class Adaptive2(BaseSKMObject, ClassifierMixin):
         
         if self._ensemble:
             margins = self._ensemble.predict(d_mini_batch_train, output_margin=True)
+
         d_mini_batch_train.set_base_margin(margin=margins)
         booster = xgb.train(params=self._boosting_params,
                             dtrain=d_mini_batch_train,

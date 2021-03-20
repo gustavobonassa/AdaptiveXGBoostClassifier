@@ -11,12 +11,12 @@ import multiprocessing
 from pathos.multiprocessing import ProcessPool as Pool
 import time
 
-def _thread(x, y):
+def _thread(args):
     # print(args["ensemble"])
-    print(args)
-    # margins = args["ensemble"].predict(args["data"], output_margin=True)
-    # return margins
-    return x+y
+    # print(args)
+    margins = args["ensemble"].predict(args["data"], output_margin=True)
+    return margins
+
 
 def _teste(ensemble, data):
     pool = Pool(8)
@@ -224,6 +224,7 @@ class AdaptiveXGBoostClassifier(BaseSKMObject, ClassifierMixin):
         for j in range(last_model_idx):
             margins = np.add(margins,
                              self._ensemble[j].predict(d_mini_batch_train, output_margin=True))
+        # print(margins)
         d_mini_batch_train.set_base_margin(margin=margins)
         booster = xgb.train(params=self._boosting_params,
                             dtrain=d_mini_batch_train,
