@@ -1,0 +1,297 @@
+# airlines
+# Max depth
+## ensemble
+# axgb = np.array([[59.70,-576.44],
+#         [61.74,-556.36],
+#         [61.27,-553.98],
+#         [61.19,-554.54]])
+
+# x1 = axgb[:, 0]
+# y1 = axgb[:, 1]
+
+# plt.scatter(x1, y1, marker="D", label='Ensemble')
+
+# ## sea_a
+# axgb2 = np.array([[86.13,-508.75],
+#         [88.36,-493.73],
+#         [88.35,-493.28],
+#         [88.30,-493.45]])
+
+# x12 = axgb2[:, 0]
+# y12 = axgb2[:, 1]
+
+# plt.scatter(x12, y12, marker="D", label='Ensemble')
+
+# ## hyper_f
+# axgb3 = np.array([[81.90,-574.13],
+#         [85.82,-555.95],
+#         [85.23,-554.01],
+#         [85.29,-555.12]])
+
+# x13 = axgb3[:, 0]
+# y13 = axgb3[:, 1]
+
+# plt.scatter(x13, y13, marker="D", label='Ensemble')
+
+## incremental
+
+# axgbi = np.array([[60.34,-360.31],
+#         [60.5,-360.08],
+#         [60.63,-365.33],
+#         [60.76,-366.97]])
+
+# x2 = axgbi[:, 0]
+# y2 = axgbi[:, 1]
+# plt.scatter(x2, y2, label='Incremental')
+
+
+# ## sea_a
+# axgbi2 = np.array([[83.14,-247.17],
+#         [83.16,-246.99],
+#         [83.14,-249.08],
+#         [83.06,-250.17]])
+
+# x12 = axgbi2[:, 0]
+# y12 = axgbi2[:, 1]
+
+# plt.scatter(x12, y12, label='Incremental')
+
+## hyper_f
+# axgbi3 = np.array([[81.44,-220.43],
+#         [81.53,-220.69],
+#         [81.55,-223.36],
+#         [81.57,-223.34]])
+
+# x13 = axgbi3[:, 0]
+# y13 = axgbi3[:, 1]
+
+# plt.scatter(x13, y13, label='Incremental')
+
+
+######################################################
+## learning rate
+
+# airlines
+
+## ensemble
+# axgb = np.array([[63.30,-532.15],
+#         [63.39,-516.77],
+#         [62.96,-515.89],
+#         [58.87,-515.79]])
+
+# x1 = axgb[:, 0]
+# y1 = axgb[:, 1]
+
+# plt.scatter(x1, y1, marker="D", label='Ensemble')
+
+# ## sea_a
+# axgb2 = np.array([[88.90,-510.52],
+#         [88.94,-495.47],
+#         [88.82,-494.53],
+#         [83.87,-494.72]])
+
+# x12 = axgb2[:, 0]
+# y12 = axgb2[:, 1]
+
+# plt.scatter(x12, y12, marker="D", label='Ensemble')
+
+# ## hyper_f
+# axgb3 = np.array([[84.14,-526.38],
+#         [85.42,-511.09],
+#         [86.17,-510.01],
+#         [80.90,-510.15]])
+
+# x13 = axgb3[:, 0]
+# y13 = axgb3[:, 1]
+
+# plt.scatter(x13, y13, marker="D", label='Ensemble')
+
+## incremental
+
+# axgbi = np.array([[58.74,-213.55],
+#         [58.78,-211.59],
+#         [58.90,-211.16],
+#         [59.15,-211.23]])
+
+# x2 = axgbi[:, 0]
+# y2 = axgbi[:, 1]
+# plt.scatter(x2, y2, label='Incremental')
+
+
+# ## sea_a
+# axgbi2 = np.array([[80.25,-195.20],
+#         [80.26,-192.96],
+#         [80.33,-192.86],
+#         [80.29,-192.84]])
+
+# x12 = axgbi2[:, 0]
+# y12 = axgbi2[:, 1]
+
+# plt.scatter(x12, y12, label='Incremental')
+
+## hyper_f
+# axgbi3 = np.array([[80.82,-129.21],
+#         [80.84,-127.10],
+#         [80.91,-126.81],
+#         [81.02,-125.80]])
+
+# x13 = axgbi3[:, 0]
+# y13 = axgbi3[:, 1]
+
+# plt.scatter(x13, y13, label='Incremental')
+
+#####################################
+## max window size							
+
+# airlines
+
+## ensemble
+# axgb = np.array([[61.06,-518.65],
+#         [61.81,-501.63],
+#         [62.03,-501.56],
+#         [63.19,-503.31],
+#         [64.13,-501.49]])
+
+# x1 = axgb[:, 0]
+# y1 = axgb[:, 1]
+
+# plt.scatter(x1, y1, marker="D", label='Ensemble')
+
+# ## sea_a
+# axgb2 = np.array([[88.03,-513.56],
+#         [88.41,-495.69],
+#         [88.65,-494.78],
+#         [88.63,-495.72],
+#         [87.96,-491.00]])
+
+# x12 = axgb2[:, 0]
+# y12 = axgb2[:, 1]
+
+# plt.scatter(x12, y12, marker="D", label='Ensemble')
+
+# ## hyper_f
+# axgb3 = np.array([[86.28,-557.39],
+#         [85.57,-536.43],
+#         [84.49,-536.39],
+#         [83.23,-538.77],
+#         [81.56,-540.29]])
+
+# x13 = axgb3[:, 0]
+# y13 = axgb3[:, 1]
+
+# plt.scatter(x13, y13, marker="D", label='Ensemble')
+
+## incremental
+
+# axgbi = np.array([[62.05,-390.79],
+#         [62.05,-230.09],
+#         [61.93,-153.02],
+#         [61.58,-116.21],
+#         [61.05,-100.57]])
+
+# x2 = axgbi[:, 0]
+# y2 = axgbi[:, 1]
+# plt.scatter(x2, y2, label='Incremental')
+
+
+# ## sea_a
+# axgbi2 = np.array([[84.93,-306.68],
+#         [84.91,-185.87],
+#         [84.91,-127.85],
+#         [84.97,-99.31],
+#         [85.06,-86.83]])
+
+# x12 = axgbi2[:, 0]
+# y12 = axgbi2[:, 1]
+
+# plt.scatter(x12, y12, label='Incremental')
+
+## hyper_f
+# axgbi3 = np.array([[82.36,-317.36],
+#         [82.33,-198.79],
+#         [82.27,-142.75],
+#         [82.04,-117.36],
+#         [81.56,-110.78]])
+
+# x13 = axgbi3[:, 0]
+# y13 = axgbi3[:, 1]
+
+# plt.scatter(x13, y13, label='Incremental')
+
+#############################
+## ensemble size						
+
+# airlines
+
+## ensemble
+# axgb = np.array([[63.67,-206.55],
+#         [62.67,-303.93],
+#         [63.13,-600.36],
+#         [61.02,-1322.36],
+#         [61.02,-2591.29]])
+
+# x1 = axgb[:, 0]
+# y1 = axgb[:, 1]
+
+# plt.scatter(x1, y1, marker="D", label='Ensemble')
+
+# ## sea_a
+# axgb2 = np.array([[88.15,-252.84],
+#         [88.47,-379.69],
+#         [88.44,-850.63],
+#         [88.16,-1644.66],
+#         [87.22,-3211.44]])
+
+# x12 = axgb2[:, 0]
+# y12 = axgb2[:, 1]
+
+# plt.scatter(x12, y12, marker="D", label='Ensemble')
+
+# ## hyper_f
+# axgb3 = np.array([[83.44,-122.47],
+#         [85.25,-190.65],
+#         [85.87,-472.49],
+#         [83.95,-842.21],
+#         [80.72,-1618.19]])
+
+# x13 = axgb3[:, 0]
+# y13 = axgb3[:, 1]
+
+# plt.scatter(x13, y13, marker="D", label='Ensemble')
+
+## incremental
+
+# axgbi = np.array([[61.14,-186.36],
+#         [61.14,-186.36],
+#         [61.14,-186.36],
+#         [61.14,-186.36],
+#         [61.14,-186.36]])
+
+# x2 = axgbi[:, 0]
+# y2 = axgbi[:, 1]
+# plt.scatter(x2, y2, label='Incremental')
+
+
+# ## sea_a
+# axgbi2 = np.array([[86.08,-172.64],
+#         [86.08,-172.64],
+#         [86.08,-172.64],
+#         [86.08,-172.64],
+#         [86.08,-172.64]])
+
+# x12 = axgbi2[:, 0]
+# y12 = axgbi2[:, 1]
+
+# plt.scatter(x12, y12, label='Incremental')
+
+## hyper_f
+# axgbi3 = np.array([[81.64,-114.13],
+#         [81.64,-114.13],
+#         [81.64,-114.13],
+#         [81.64,-114.13],
+#         [81.64,-114.13]])
+
+# x13 = axgbi3[:, 0]
+# y13 = axgbi3[:, 1]
+
+# plt.scatter(x13, y13, label='Incremental')
